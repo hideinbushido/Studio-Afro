@@ -13,15 +13,22 @@ const UA =
   "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36";
 
 function trouverCouverture(html: string): string | null {
+  // L'état de la page d'intégration contient "covers":["https://…"], parfois échappé (\").
   const motifs = [
-    /"originCover":"(https:[^"]+)"/,
-    /"cover":"(https:[^"]+)"/,
-    /"dynamicCover":"(https:[^"]+)"/,
+    /\\?"covers\\?":\[\\?"(https:(?:[^"\\]|\\u[0-9a-fA-F]{4}|\\\/)+)/,
+    /\\?"originCover\\?":\\?"(https:(?:[^"\\]|\\u[0-9a-fA-F]{4}|\\\/)+)/,
+    /\\?"cover\\?":\\?"(https:(?:[^"\\]|\\u[0-9a-fA-F]{4}|\\\/)+)/,
+    /poster="(https:[^"]+)"/,
     /<meta[^>]+property="og:image"[^>]+content="([^"]+)"/,
   ];
   for (const m of motifs) {
     const r = html.match(m);
-    if (r) return r[1].replace(/\\u002F/g, "/").replace(/\\\//g, "/").replace(/&amp;/g, "&");
+    if (r)
+      return r[1]
+        .replace(/\\u002F/gi, "/")
+        .replace(/\\u0026/gi, "&")
+        .replace(/\\\//g, "/")
+        .replace(/&amp;/g, "&");
   }
   return null;
 }
