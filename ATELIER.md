@@ -10,7 +10,7 @@ Vercel : projet « studio-afro » (équipe hideinbushidos-projects), mise en lig
 ## Pages et sections
 | Page | Section | Source(s) | État |
 |---|---|---|---|
-| Accueil | Nav + chargement | jjettas.com (pastille, % de chargement) | à faire |
+| Accueil | Nav + chargement + menu | jjettas.com (pastille, % de chargement, menu plein écran, volet diagonal) | fait (2026-11-09), vérifié en ligne |
 | Accueil | Hero | jjettas.com — https://jjettas.com (structure : portrait détouré, filigrane géant, carte à gauche, signature à droite) | validée (2026-11-09) |
 | Accueil | Moments clés | jjettas.com — Signature Moments (structure) · 21st.dev Holographic Foil Card @daiwiikharihar (inclinaison + reflet) · 21st.dev Horizontal Scroll ui layout (section épinglée) · 21st.dev Wave @designali-in (fond tramé animé, via @paper-design/shaders) | validée (2026-11-09), couvertures TikTok + lecteur |
 | Accueil | Citation | jjettas.com — citation en lettres pointillées | à faire |
@@ -48,5 +48,8 @@ Vercel : projet « studio-afro » (équipe hideinbushidos-projects), mise en lig
 
 - 2026-11-09 : cartes = couvertures TikTok, récupérées par le serveur sur la page d'intégration officielle (oEmbed ne donne plus la miniature), cache 12 h, illustration d'Afro en secours. Clic = lecteur TikTok officiel dans une fenêtre de verre (vérifié en ligne).
 
+- 2026-11-09 : les 20 moments de TIMELINE sont des cartes (demande de Rico).
+- 2026-11-09 : bloquer le défilement de la page (overflow / lenis.stop) pendant le chargement gelait le navigateur de test ; le chargement couvre l'écran, on ne bloque rien.
+
 ## Prochaine étape
-Priorités de AUDIT-JEFFERSON.md §4 : chargement, transition de page, menu plein écran, puis citation + polaroïds.
+Citation « I can't fail because this sh*t is my universe » + cases qui tombent (AUDIT A5).

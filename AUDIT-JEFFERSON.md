@@ -6,10 +6,10 @@ Audit du 9 novembre 2026 (site fait par Layer Two pour Assemble). On reprend les
 
 | # | Chez Jefferson | Pour Studio AFRO | État |
 |---|---|---|---|
-| G1 | **Écran de chargement** : monogramme qui se remplit + pourcentage (9 % → 100 %) | Le logo ΔFR★ qui se remplit comme une trame d'encre + pourcentage | à faire |
-| G2 | **Transition entre pages** : un volet en diagonale balaie l'écran, le chargement réapparaît | Volet diagonal encre/magenta (même diagonale que le bas du hero) | à faire |
+| G1 | **Écran de chargement** : monogramme qui se remplit + pourcentage (9 % → 100 %) | Le logo ΔFR★ qui se remplit comme une trame d'encre + pourcentage | fait |
+| G2 | **Transition entre pages** : un volet en diagonale balaie l'écran, le chargement réapparaît | Volet diagonal encre/magenta (même diagonale que le bas du hero) | fait (servira dès qu'il y aura d'autres pages) |
 | G3 | **Nav** : monogramme à gauche, nom au centre, menu à droite ; sur Off-Field une **pastille de chapitres** (FASHION / DIGITAL…) qui suit le scroll | Fait (logo, pastille de verre, menu). Pastille de chapitres pour la page Studio | partiel |
-| G4 | **Menu plein écran** : fond texturé, liens géants en condensé (HOME, ON-FIELD…), le lien survolé s'allume, les autres restent gris ; icônes réseaux ; pied (©, Privacy, Terms, crédit) | Menu plein écran sur fond animé, liens Anton géants, survol qui s'allume en rose, icônes TikTok / Instagram / YouTube | à faire |
+| G4 | **Menu plein écran** : fond texturé, liens géants en condensé (HOME, ON-FIELD…), le lien survolé s'allume, les autres restent gris ; icônes réseaux ; pied (©, Privacy, Terms, crédit) | Menu plein écran sur fond animé, liens Anton géants, survol qui s'allume en rose, icônes TikTok / Instagram / YouTube | fait (Studio et Chiffres marqués « bientôt ») |
 | G5 | **Bouton son** en bas à droite (musique d'ambiance, « Turn sound off ») | Bouton son : un générique ou une boucle d'Afro, coupé par défaut | bouton présent, son à brancher |
 | G6 | **Pied de page** : panneau de verre à gauche (logo, liens, réseaux, mentions), grande phrase au centre (« Records were made to be broken »), bouton doré vers On-Field, joueur détouré à droite, bandeau de logos qui défile | Panneau de verre + sa citation + bouton vers la page Studio + autoportrait détouré à droite + bandeau des collabs | à faire |
 | G7 | Fond texturé (cuir de ballon) sur toutes les sections, version claire et sombre | Trame manga claire (hero) + fond animé profond (sections sombres) | fait |
