@@ -9,7 +9,7 @@ Stack : Next.js 15 (App Router) + Tailwind 4, déploiement Vercel
 | Page | Section | Source(s) | État |
 |---|---|---|---|
 | Accueil | Nav + chargement | jjettas.com (pastille, % de chargement) | à faire |
-| Accueil | Hero | jjettas.com — https://jjettas.com (structure : portrait détouré, filigrane géant, carte à gauche, signature à droite) | construit, en attente de validation |
+| Accueil | Hero | jjettas.com — https://jjettas.com (structure : portrait détouré, filigrane géant, carte à gauche, signature à droite) | validée (2026-11-09) |
 | Accueil | Moments clés | jjettas.com — Signature Moments (défilement horizontal, cartes, règle) | à faire |
 | Accueil | Citation | jjettas.com — citation en lettres pointillées | à faire |
 | Accueil | Cases qui tombent | jjettas.com — pile de polaroïds | à faire |
@@ -42,4 +42,4 @@ Stack : Next.js 15 (App Router) + Tailwind 4, déploiement Vercel
 - 2026-11-09 : 21st.dev consulté dans le navigateur (le connecteur 21st n'est pas branché ici) ; mécanique reprise, rendu refait aux tokens.
 
 ## Prochaine étape
-Valider le hero, puis fiche « Moments clés » avec les candidats 21st.dev.
+Fiche « Moments clés » avec les candidats 21st.dev.
