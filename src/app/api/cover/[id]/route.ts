@@ -2,62 +2,61 @@ import { NextResponse } from "next/server";
 
 /**
  * Couverture d'une vidéo TikTok d'Afro.
- * Le serveur demande la miniature officielle (oEmbed TikTok), la renvoie et
- * la met en cache 12 h sur Vercel. Si TikTok ne répond pas, on renvoie
- * l'illustration de secours passée en ?fallback=.
+ * Le serveur lit la page d'intégration officielle de la vidéo (embed/v2),
+ * y prend l'URL de la couverture, renvoie l'image et la met en cache 12 h.
+ * Si TikTok ne répond pas, on renvoie l'illustration de secours (?fallback=).
+ * ?debug=1 renvoie le détail de chaque étape.
  */
 export const revalidate = 43200;
 
-const PROFIL = "https://www.tiktok.com/@afrothecreator/video/";
+const UA =
+  "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36";
+
+function trouverCouverture(html: string): string | null {
+  const motifs = [
+    /"originCover":"(https:[^"]+)"/,
+    /"cover":"(https:[^"]+)"/,
+    /"dynamicCover":"(https:[^"]+)"/,
+    /<meta[^>]+property="og:image"[^>]+content="([^"]+)"/,
+  ];
+  for (const m of motifs) {
+    const r = html.match(m);
+    if (r) return r[1].replace(/\\u002F/g, "/").replace(/\\\//g, "/").replace(/&amp;/g, "&");
+  }
+  return null;
+}
 
 export async function GET(req: Request, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const sp = new URL(req.url).searchParams;
   const fallback = sp.get("fallback");
   const debug = sp.has("debug");
-  const secours = () =>
-    fallback?.startsWith("/afro/")
+  const secours = (etape: string, info?: unknown) => {
+    console.warn(`[cover] ${id} : échec à l'étape ${etape}`, info ?? "");
+    if (debug) return NextResponse.json({ etape, info });
+    return fallback?.startsWith("/afro/")
       ? NextResponse.redirect(new URL(fallback, req.url), 307)
       : new NextResponse(null, { status: 404 });
+  };
 
-  if (!/^\d{10,25}$/.test(id)) return secours();
+  if (!/^\d{10,25}$/.test(id)) return secours("id");
 
   try {
-    const meta = await fetch(`https://www.tiktok.com/oembed?url=${encodeURIComponent(PROFIL + id)}`, {
+    const page = await fetch(`https://www.tiktok.com/embed/v2/${id}`, {
       next: { revalidate: 43200 },
-      headers: { "User-Agent": "Mozilla/5.0 (compatible; StudioAfroBot/1.0)", Accept: "application/json" },
+      headers: { "User-Agent": UA, "Accept-Language": "fr-FR,fr;q=0.9" },
     });
-    if (!meta.ok) {
-      console.warn(`[cover] oEmbed ${id} → ${meta.status}`);
-      if (debug) return NextResponse.json({ etape: "oembed", status: meta.status, corps: (await meta.text()).slice(0, 300) });
-      return secours();
-    }
-    const brut = await meta.text();
-    let thumbnail_url: string | undefined;
-    try {
-      thumbnail_url = (JSON.parse(brut) as { thumbnail_url?: string }).thumbnail_url;
-    } catch {}
-    if (!thumbnail_url) {
-      if (debug) {
-        const o = JSON.parse(brut) as Record<string, unknown>;
-        return NextResponse.json({
-          etape: "oembed-json",
-          cles: Object.keys(o),
-          valeurs: Object.fromEntries(Object.entries(o).filter(([k]) => k !== "html")),
-        });
-      }
-      return secours();
-    }
+    if (!page.ok) return secours("embed", page.status);
+    const html = await page.text();
+    const cover = trouverCouverture(html);
+    if (!cover) return secours("couverture-introuvable", html.slice(0, 200));
 
-    const img = await fetch(thumbnail_url, {
+    const img = await fetch(cover, {
       next: { revalidate: 43200 },
-      headers: { Referer: "https://www.tiktok.com/", "User-Agent": "Mozilla/5.0 (compatible; StudioAfroBot/1.0)" },
+      headers: { "User-Agent": UA, Referer: "https://www.tiktok.com/" },
     });
-    if (!img.ok) {
-      console.warn(`[cover] image ${id} → ${img.status}`);
-      if (debug) return NextResponse.json({ etape: "image", status: img.status, url: thumbnail_url.slice(0, 120) });
-      return secours();
-    }
+    if (!img.ok) return secours("image", { status: img.status, cover: cover.slice(0, 100) });
+    if (debug) return NextResponse.json({ etape: "ok", cover: cover.slice(0, 100), type: img.headers.get("content-type") });
 
     return new NextResponse(await img.arrayBuffer(), {
       headers: {
@@ -66,8 +65,6 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
       },
     });
   } catch (e) {
-    console.warn(`[cover] ${id} → erreur`, e);
-    if (debug) return NextResponse.json({ etape: "exception", message: String(e) });
-    return secours();
+    return secours("exception", String(e));
   }
 }
