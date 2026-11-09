@@ -23,13 +23,23 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
   try {
     const meta = await fetch(`https://www.tiktok.com/oembed?url=${encodeURIComponent(PROFIL + id)}`, {
       next: { revalidate: 43200 },
+      headers: { "User-Agent": "Mozilla/5.0 (compatible; StudioAfroBot/1.0)", Accept: "application/json" },
     });
-    if (!meta.ok) return secours();
+    if (!meta.ok) {
+      console.warn(`[cover] oEmbed ${id} → ${meta.status}`);
+      return secours();
+    }
     const { thumbnail_url } = (await meta.json()) as { thumbnail_url?: string };
     if (!thumbnail_url) return secours();
 
-    const img = await fetch(thumbnail_url, { next: { revalidate: 43200 } });
-    if (!img.ok) return secours();
+    const img = await fetch(thumbnail_url, {
+      next: { revalidate: 43200 },
+      headers: { Referer: "https://www.tiktok.com/", "User-Agent": "Mozilla/5.0 (compatible; StudioAfroBot/1.0)" },
+    });
+    if (!img.ok) {
+      console.warn(`[cover] image ${id} → ${img.status}`);
+      return secours();
+    }
 
     return new NextResponse(await img.arrayBuffer(), {
       headers: {
@@ -37,7 +47,8 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
         "Cache-Control": "public, max-age=3600, s-maxage=43200, stale-while-revalidate=86400",
       },
     });
-  } catch {
+  } catch (e) {
+    console.warn(`[cover] ${id} → erreur`, e);
     return secours();
   }
 }
