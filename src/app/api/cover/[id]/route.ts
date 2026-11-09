@@ -38,7 +38,14 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
       thumbnail_url = (JSON.parse(brut) as { thumbnail_url?: string }).thumbnail_url;
     } catch {}
     if (!thumbnail_url) {
-      if (debug) return NextResponse.json({ etape: "oembed-json", corps: brut.slice(0, 300) });
+      if (debug) {
+        const o = JSON.parse(brut) as Record<string, unknown>;
+        return NextResponse.json({
+          etape: "oembed-json",
+          cles: Object.keys(o),
+          valeurs: Object.fromEntries(Object.entries(o).filter(([k]) => k !== "html")),
+        });
+      }
       return secours();
     }
 
