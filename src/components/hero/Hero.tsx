@@ -3,32 +3,42 @@ import s from "./Hero.module.css";
 
 const timecodes = ["00:00", "00:10", "00:20", "00:30", "00:40"];
 
+/**
+ * Hero calqué sur l'accueil de jjettas.com : visuel géant au centre,
+ * monogramme en filigrane, carte à gauche, signature à droite,
+ * coupe diagonale vers la section sombre. Le nom est dans la nav.
+ */
 export function Hero() {
   return (
     <section className={s.hero} aria-labelledby="hero-title">
+      <h1 id="hero-title" className="sr-only">
+        Studio AFRO — Afro, doublage, parodies Bading et animation
+      </h1>
+
       <div className={s.speed} aria-hidden="true" />
       <div className={s.watermark} aria-hidden="true">
         ΔFR<span>✪</span>
       </div>
 
-      {/* Autoportrait d'Afro, détouré */}
+      {/* Visuel central : l'avatar d'Afro, le poing et l'étoile */}
       <figure className={s.perso}>
         <Image
-          src="/afro/portrait-detoure.webp"
-          alt="Autoportrait dessiné d'Afro, de dos, la main sur la nuque, l'étoile rose sur l'épaule"
-          width={940}
+          src="/afro/poing-1080.webp"
+          alt="Dessin d'Afro en noir et blanc : un poing serré, une étoile rose sur l'épaule"
+          width={1080}
           height={1080}
           priority
-          sizes="(max-width: 760px) 90vw, 46vw"
+          sizes="(max-width: 760px) 96vw, 82vh"
           className={s.persoImg}
         />
       </figure>
 
+      {/* Carte à gauche, comme la carte rookie de la référence */}
       <aside className={s.card}>
         <div className={s.cardFrame}>
           <div className={s.cardThumb}>
             <Image
-              src="/afro/poing.webp"
+              src="/afro/carte-dos.webp"
               alt=""
               fill
               sizes="160px"
@@ -43,31 +53,22 @@ export function Hero() {
           </div>
         </div>
         <p className={s.cardText}>
-          06.11.2023 — le premier Bading. Cinq jours plus tard, la première
-          vidéo à un million.
+          Le premier Bading, novembre 2023. Cinq jours plus tard, la première
+          vidéo à un million de vues.
         </p>
       </aside>
 
+      {/* Signature à droite : le tampon du studio */}
       <div className={s.right}>
         <div className={s.stamp} aria-hidden="true">
           <span className={s.stampMark}>ΔFR✪</span>
           <span className={s.stampSub}>STUDIO · 2026</span>
         </div>
         <p className={s.rightText}>
-          Doublage, parodies, animation. Chaque Bading est écrit, joué et monté
-          à la main.
+          D&apos;Abidjan aux openings d&apos;animés. Doublage, parodies,
+          animation : chaque Bading est écrit, joué et monté à la main.
         </p>
       </div>
-
-      <p className={s.kicker}>Doublage · Animation · Bading</p>
-      <h1 id="hero-title" className={s.title}>
-        <span className={s.titleLine}>
-          <span>Studio</span>
-        </span>
-        <span className={`${s.titleLine} ${s.titleInk}`}>
-          <span>Afro</span>
-        </span>
-      </h1>
 
       <div className={s.cut} aria-hidden="true" />
       <div className={s.ruler} aria-hidden="true">

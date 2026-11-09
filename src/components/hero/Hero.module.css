@@ -1,3 +1,5 @@
+/* Hero — base : accueil de jjettas.com, refait en manga */
+
 .hero {
   position: relative;
   height: 100svh;
@@ -7,7 +9,7 @@
   background: var(--color-paper);
 }
 
-/* Trame manga : points de demi-teinte, plus denses vers les bords */
+/* Trame manga, plus dense vers les bords (remplace le cuir de ballon) */
 .hero::before {
   content: "";
   position: absolute;
@@ -19,67 +21,72 @@
   mask-image: radial-gradient(ellipse 70% 60% at 50% 45%, transparent 35%, #000 100%);
 }
 
-/* Lignes de vitesse depuis le perso */
+/* Lignes de vitesse depuis le visuel */
 .speed {
   position: absolute;
   inset: -20%;
   z-index: -2;
   opacity: 0.07;
   background: repeating-conic-gradient(
-    from 0deg at 50% 52%,
+    from 0deg at 50% 55%,
     var(--color-ink) 0deg 0.6deg,
     transparent 0.6deg 6deg
   );
   animation: spin 120s linear infinite;
 }
 
+/* Monogramme géant en filigrane (le « JJ » de la référence) */
 .watermark {
   position: absolute;
   left: 50%;
   top: 50%;
-  translate: -50% -54%;
+  translate: -50% -50%;
   z-index: -1;
   font-family: var(--font-display);
-  font-size: min(36vw, 62vh);
+  font-size: min(44vw, 78vh);
   line-height: 0.8;
   letter-spacing: -0.02em;
   color: transparent;
-  -webkit-text-stroke: 2px rgb(14 13 12 / 0.13);
+  -webkit-text-stroke: 2px rgb(14 13 12 / 0.12);
   white-space: nowrap;
   user-select: none;
 }
 .watermark span {
-  -webkit-text-stroke-color: rgb(232 51 111 / 0.35);
+  -webkit-text-stroke-color: rgb(232 51 111 / 0.3);
 }
 
-/* Le perso : emplacement du dessin d'Afro */
+/* Visuel central : le poing, imprimé sur le papier */
 .perso {
   position: absolute;
   left: 50%;
-  bottom: 0;
+  bottom: -2vh;
   translate: -50% 0;
-  height: min(88vh, 900px);
-  aspect-ratio: 940 / 1080;
+  width: min(84vh, 58vw);
+  aspect-ratio: 1;
   z-index: 1;
   margin: 0;
-  animation: rise 900ms var(--ease-snap) 150ms both;
+  border-radius: 50%;
+  border: 5px solid var(--color-ink);
+  box-shadow: 14px 10px 0 var(--color-star);
+  overflow: hidden;
+  background: var(--color-paper);
+  animation: rise 900ms var(--ease-snap) 120ms both;
 }
 .persoImg {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  object-position: bottom;
-  /* Contour d'encre autour du détourage, façon case de manga */
-  filter: drop-shadow(3px 0 0 var(--color-ink)) drop-shadow(-3px 0 0 var(--color-ink))
-    drop-shadow(0 -3px 0 var(--color-ink)) drop-shadow(10px 8px 0 var(--color-star));
+  object-fit: cover;
+  /* Le blanc du dessin prend la couleur du papier */
+  mix-blend-mode: multiply;
+  filter: contrast(1.08);
 }
 
-/* Carte à gauche : le premier million */
+/* Carte à gauche */
 .card {
   position: absolute;
   left: 4.5vw;
-  top: 17vh;
-  width: 160px;
+  top: 36vh;
+  width: 150px;
   z-index: 3;
   rotate: -4deg;
   animation: drop 700ms var(--ease-spring) 500ms both;
@@ -93,13 +100,11 @@
 .cardThumb {
   position: relative;
   aspect-ratio: 3 / 4;
-  background:
-    radial-gradient(var(--color-star) 1.4px, transparent 1.7px) 0 0 / 7px 7px,
-    var(--color-ink-2);
+  overflow: hidden;
+  background: var(--color-ink-2);
 }
 .cardImg {
   object-fit: cover;
-  filter: grayscale(0.15) contrast(1.1);
 }
 .cardThumb::after {
   content: "";
@@ -108,8 +113,8 @@
   background: linear-gradient(to top, rgb(14 13 12 / 0.9), transparent 55%);
 }
 .cardEp {
-  z-index: 1;
   position: absolute;
+  z-index: 1;
   top: 8px;
   left: 8px;
   font-size: 9px;
@@ -119,36 +124,36 @@
   padding: 3px 6px;
 }
 .cardBig {
-  z-index: 1;
   position: absolute;
+  z-index: 1;
   inset: auto 8px 8px 8px;
   font-family: var(--font-display);
   color: var(--color-paper);
-  font-size: 26px;
+  font-size: 24px;
   line-height: 0.95;
   text-transform: uppercase;
 }
 .cardText {
-  margin-top: 14px;
+  margin-top: 16px;
   font-size: 10.5px;
-  line-height: 1.55;
-  max-width: 190px;
+  line-height: 1.6;
+  max-width: 180px;
   rotate: 4deg;
 }
 
-/* Tampon à droite */
+/* Signature à droite : le tampon */
 .right {
   position: absolute;
   right: 5vw;
-  top: 36vh;
-  width: 240px;
+  top: 38vh;
+  width: 220px;
   z-index: 3;
 }
 .stamp {
   position: relative;
-  width: 150px;
-  height: 150px;
-  margin-bottom: 22px;
+  width: 140px;
+  height: 140px;
+  margin-bottom: 20px;
   border: 4px solid var(--color-star);
   border-radius: 50%;
   display: grid;
@@ -166,79 +171,28 @@
 }
 .stampMark {
   font-family: var(--font-display);
-  font-size: 44px;
+  font-size: 40px;
   line-height: 1;
 }
 .stampSub {
   position: absolute;
-  bottom: 26px;
+  bottom: 24px;
   font-size: 8px;
   letter-spacing: 0.3em;
   font-weight: 700;
 }
 .rightText {
-  font-size: 11px;
+  font-size: 10.5px;
   line-height: 1.6;
 }
 
-/* Titre */
-.kicker {
-  position: absolute;
-  left: 44px;
-  bottom: calc(16vh + min(17vw, 262px));
-  z-index: 3;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-}
-.kicker::before {
-  content: "✪ ";
-  color: var(--color-star);
-}
-.title {
-  position: absolute;
-  left: 40px;
-  bottom: 16vh;
-  z-index: 3;
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: min(9vw, 140px);
-  line-height: 0.86;
-  letter-spacing: -0.01em;
-  text-transform: uppercase;
-}
-.titleLine {
-  display: block;
-  overflow: hidden;
-  padding-bottom: 0.04em;
-}
-.titleLine > span {
-  display: block;
-  animation: up 800ms var(--ease-snap) both;
-}
-.titleLine:nth-child(2) > span {
-  animation-delay: 120ms;
-}
-.titleInk {
-  width: max-content;
-  margin-top: 0.06em;
-  rotate: -1.5deg;
-  translate: -4px 0;
-}
-.titleInk > span {
-  background: var(--color-ink);
-  color: var(--color-paper);
-  padding: 0 0.12em;
-}
-
-/* Coupe diagonale + timeline de montage */
+/* Coupe diagonale + timeline de montage (la règle de terrain de la référence) */
 .cut {
   position: absolute;
   left: -2%;
   right: -2%;
   bottom: -1px;
-  height: 13vh;
+  height: 14vh;
   z-index: 4;
   background: var(--color-ink);
   clip-path: polygon(0 72%, 100% 0, 100% 100%, 0 100%);
@@ -292,10 +246,8 @@
 .sound:active { translate: 2px 2px; }
 
 @keyframes spin { to { rotate: 360deg; } }
-@keyframes up { from { translate: 0 105%; } }
-@keyframes rise { from { translate: -50% 40%; } }
+@keyframes rise { from { translate: -50% 45%; } }
 @keyframes drop { from { translate: -40px -120vh; rotate: -24deg; } }
-@keyframes pop { from { scale: 0; rotate: -90deg; } }
 @keyframes stamp {
   0% { scale: 2.2; opacity: 0; }
   70% { scale: 0.94; opacity: 1; }
@@ -303,29 +255,15 @@
 }
 
 @media (max-width: 760px) {
-  .perso { height: auto; width: 92vw; bottom: 0; left: 58%; }
-  .titleLine:first-child > span {
-    width: max-content;
-    background: var(--color-paper);
-    border: 3px solid var(--color-ink);
-    padding: 0.04em 0.12em 0;
-  }
-  .kicker {
-    background: var(--color-paper);
-    padding: 4px 6px;
-    width: max-content;
-    max-width: calc(100vw - 36px);
-  }
-  .card { left: 16px; top: 92px; width: 104px; }
-  .cardBig { font-size: 17px; }
+  .perso { width: 100vw; bottom: 11vh; }
+  .watermark { font-size: 46vw; top: 40%; }
+  .card { left: 16px; top: 96px; width: 96px; }
+  .cardBig { font-size: 15px; }
   .cardText { display: none; }
-  .right { right: 20px; top: 104px; width: 120px; }
-  .stamp { width: 96px; height: 96px; }
-  .stampMark { font-size: 30px; }
-  .stampSub { bottom: 18px; font-size: 6px; }
+  .right { right: 18px; top: 110px; width: 110px; }
+  .stamp { width: 92px; height: 92px; margin-bottom: 0; }
+  .stampMark { font-size: 27px; }
+  .stampSub { bottom: 16px; font-size: 6px; }
   .rightText { display: none; }
-  .title { left: 16px; bottom: 15vh; font-size: 17vw; }
-  .kicker { left: 18px; bottom: calc(15vh + 32vw); }
-  .watermark { font-size: 44vw; top: 44%; }
   .ruler { padding-left: 0; font-size: 9px; }
 }
