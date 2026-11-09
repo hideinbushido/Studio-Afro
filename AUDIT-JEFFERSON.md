@@ -11,10 +11,10 @@ Audit du 9 novembre 2026 (site fait par Layer Two pour Assemble). On reprend les
 | G3 | **Nav** : monogramme à gauche, nom au centre, menu à droite ; sur Off-Field une **pastille de chapitres** (FASHION / DIGITAL…) qui suit le scroll | Fait (logo, pastille de verre, menu). Pastille de chapitres pour la page Studio | partiel |
 | G4 | **Menu plein écran** : fond texturé, liens géants en condensé (HOME, ON-FIELD…), le lien survolé s'allume, les autres restent gris ; icônes réseaux ; pied (©, Privacy, Terms, crédit) | Menu plein écran sur fond animé, liens Anton géants, survol qui s'allume en rose, icônes TikTok / Instagram / YouTube | fait (Studio et Chiffres marqués « bientôt ») |
 | G5 | **Bouton son** en bas à droite (musique d'ambiance, « Turn sound off ») | Bouton son : un générique ou une boucle d'Afro, coupé par défaut | bouton présent, son à brancher |
-| G6 | **Pied de page** : panneau de verre à gauche (logo, liens, réseaux, mentions), grande phrase au centre (« Records were made to be broken »), bouton doré vers On-Field, joueur détouré à droite, bandeau de logos qui défile | Panneau de verre + sa citation + bouton vers la page Studio + autoportrait détouré à droite + bandeau des collabs | à faire |
+| G6 | **Pied de page** : panneau de verre à gauche (logo, liens, réseaux, mentions), grande phrase au centre (« Records were made to be broken »), bouton doré vers On-Field, joueur détouré à droite, bandeau de logos qui défile | Panneau de verre + grande phrase + bouton Booking + autoportrait détouré + bandeau des collabs | fait |
 | G7 | Fond texturé (cuir de ballon) sur toutes les sections, version claire et sombre | Trame manga claire (hero) + fond animé profond (sections sombres) | fait |
 | G8 | Défilement fluide, animations au scroll partout, Lottie pour les petites icônes | Lenis + motion en place | fait |
-| G9 | Pages Privacy et Terms | Mentions légales simples | à faire |
+| G9 | Pages Privacy et Terms | Page Mentions | fait |
 
 ## 2. Accueil
 
@@ -24,10 +24,10 @@ Audit du 9 novembre 2026 (site fait par Layer Two pour Assemble). On reprend les
 | A2 | **Vidéo dans les lunettes** : ses lunettes reflètent une vidéo qui tourne ; un bouton « Zoom into the glasses video » zoome dedans | **L'étoile rose du poing joue une vidéo** (un extrait de Bading) ; clic = zoom dans l'étoile, la vidéo passe en grand | à proposer |
 | A3 | Coupe diagonale clair → sombre avec règle de terrain | Coupe diagonale + timeline de montage | fait |
 | A4 | **Signature Moments** : section épinglée, cartes dorées en défilement horizontal, règle 10-20-30 | Moments clés : couvertures TikTok, fond animé, retournement, clic = lecteur vidéo | fait |
-| A5 | **Citation** en lettres pointillées qui se remplissent au scroll, puis une **pile de polaroïds** qui tombe dessus | « I can't fail because this sh*t is my universe » qui se remplit, puis ses cases / couvertures qui tombent | à faire |
-| A6 | **Partenariats** : mot géant tramé ; au scroll, une photo par marque se remplace ; carte de verre avec le texte ; points de progression verticaux ; bouton VIEW ALL ; bandeau de logos | **Collabs** : Retro Awards, Zenkai, les créateurs avec qui il a fait des vidéos (🎙️ crédités dans ses légendes) ; même mécanique | à faire |
-| A7 | **Foundation** (section claire) : bande de photos + phrase + LEARN MORE | **L'équipe** sur papier clair : Afro, Le Zumaki, Tidiane, avec bouton vers la page Studio | à faire |
-| A8 | **Grosse phrase** « 18 is gonna go out there… » + **rangée de polaroïds qui défile** en continu | Une phrase à lui + rangée de couvertures TikTok qui défile | à faire |
+| A5 | **Citation** en lettres pointillées qui se remplissent au scroll, puis une **pile de polaroïds** qui tombe dessus | « I cannot die because this my universe » (phrase choisie par Rico) qui se remplit, puis ses dessins qui tombent | fait |
+| A6 | **Partenariats** : mot géant tramé ; au scroll, une photo par marque se remplace ; carte de verre avec le texte ; points de progression verticaux ; bouton VIEW ALL ; bandeau de logos | **Collabs** : Retro Awards, Zenkai, les créateurs avec qui il a fait des vidéos (🎙️ crédités dans ses légendes) ; même mécanique | fait (7 collabs + bandeau de 21 noms) |
+| A7 | **Foundation** (section claire) : bande de photos + phrase + LEARN MORE | **L'équipe** sur papier clair : Afro, Le Zumaki, Tidiane, avec bouton vers la page Studio | fait (photos de Le Zumaki et Tidiane à fournir) |
+| A8 | **Grosse phrase** « 18 is gonna go out there… » + **rangée de polaroïds qui défile** en continu | « Chaque Bading est fait main » + deux rangées de ses 20 vidéos les plus vues | fait |
 
 ## 3. Pages internes
 
@@ -40,7 +40,7 @@ Audit du 9 novembre 2026 (site fait par Layer Two pour Assemble). On reprend les
 | **Journal** | Grande grille d'articles, vidéos et photos (300+ images), chaque élément s'ouvre (`?item=…`) | **Vidéos** : toutes ses vidéos TikTok en grille, filtres par série, chaque vidéo s'ouvre dans un lecteur |
 | **Inquiries** | 3 cartes de verre : Partnerships / Media & Press / Booking, chacune avec son e-mail | **Booking** : 3 cartes (Doublage & voix, Animation & montage, Collabs & événements) → afrothecreatorstudio@gmail.com |
 
-## 4. Priorités proposées
+## 4. Priorités proposées (fait le 2026-11-09 : tout sauf A2 et G5)
 1. Moments clés avec les couvertures et les vidéos TikTok (en cours)
 2. Chargement + transition de page + menu plein écran (G1, G2, G4)
 3. Citation + polaroïds (A5), Collabs (A6), Équipe (A7), bande qui défile (A8), pied de page (G6)

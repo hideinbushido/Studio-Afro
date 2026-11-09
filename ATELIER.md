@@ -13,12 +13,17 @@ Vercel : projet « studio-afro » (équipe hideinbushidos-projects), mise en lig
 | Accueil | Nav + chargement + menu | jjettas.com (pastille, % de chargement, menu plein écran, volet diagonal) | fait (2026-11-09), vérifié en ligne |
 | Accueil | Hero | jjettas.com — https://jjettas.com (structure : portrait détouré, filigrane géant, carte à gauche, signature à droite) | validée (2026-11-09) |
 | Accueil | Moments clés | jjettas.com — Signature Moments (structure) · 21st.dev Holographic Foil Card @daiwiikharihar (inclinaison + reflet) · 21st.dev Horizontal Scroll ui layout (section épinglée) · 21st.dev Wave @designali-in (fond tramé animé, via @paper-design/shaders) | validée (2026-11-09), couvertures TikTok + lecteur |
-| Accueil | Citation | jjettas.com — citation en lettres pointillées | à faire |
-| Accueil | Cases qui tombent | jjettas.com — pile de polaroïds | à faire |
-| Accueil | Collabs | jjettas.com — Partnerships | à faire |
-| Accueil | Galerie | jjettas.com — défilement continu | à faire |
-| Studio | Chapitres DOUBLAGE / SÉRIES / ÉQUIPE / COLLABS | https://jjettas.com/off-field | à faire |
-| Contact | Booking | — | à faire |
+| Accueil | Citation | jjettas.com — citation pointillée + polaroïds | fait |
+| Accueil | Cases qui tombent | jjettas.com — pile de polaroïds | fait (dans la citation) |
+| Accueil | Collabs | jjettas.com — Partnerships | fait |
+| Accueil | Équipe | jjettas.com — Foundation | fait |
+| Accueil | Galerie | jjettas.com — rangée de polaroïds | fait |
+| Tout | Pied de page | jjettas.com — pied de page | fait |
+| Studio | Chapitres DOUBLAGE / SÉRIES / ÉQUIPE / COLLABS | https://jjettas.com/off-field | fait |
+| Chiffres | Compteurs, onglets par année, tableau, records | https://jjettas.com/on-field | fait |
+| Vidéos | 169 vidéos, filtres, lecteur | https://jjettas.com/journal | fait |
+| Mentions | Mentions | jjettas.com/privacy | fait |
+| Booking | 3 cartes de verre | https://jjettas.com/inquiries | fait |
 
 ## Assets
 | Asset | Origine | Utilisé où | État |
@@ -51,5 +56,8 @@ Vercel : projet « studio-afro » (équipe hideinbushidos-projects), mise en lig
 - 2026-11-09 : les 20 moments de TIMELINE sont des cartes (demande de Rico).
 - 2026-11-09 : bloquer le défilement de la page (overflow / lenis.stop) pendant le chargement gelait le navigateur de test ; le chargement couvre l'écran, on ne bloque rien.
 
+- 2026-11-09 : Rico demande de tout construire d'un coup, retouches ensuite. Citation : « I cannot die because this my universe » (phrase fournie par Rico).
+- 2026-11-09 : 169 vidéos relevées dans src/data/videos.json (vues, j'aime, série) ; elles alimentent Vidéos, Chiffres, la galerie et les collabs.
+
 ## Prochaine étape
-Citation « I can't fail because this sh*t is my universe » + cases qui tombent (AUDIT A5).
+Retours de Rico sur l'ensemble ; photos de Le Zumaki et Tidiane ; vidéo dans l'étoile (A2) et son (G5).
