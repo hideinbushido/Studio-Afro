@@ -1,3 +1,4 @@
+import Image from "next/image";
 import s from "./Hero.module.css";
 
 const timecodes = ["00:00", "00:10", "00:20", "00:30", "00:40"];
@@ -10,19 +11,29 @@ export function Hero() {
         ΔFR<span>✪</span>
       </div>
 
-      {/* Emplacement du dessin d'Afro : à remplacer par l'illustration détourée */}
-      <figure className={s.perso} aria-label="Dessin d'Afro (à venir)">
-        <div className={s.disc} />
-        <div className={s.persoStar} aria-hidden="true">✪</div>
-        <figcaption className={s.persoTag}>
-          Dessin d&apos;Afro
-          <br />à fournir
-        </figcaption>
+      {/* Autoportrait d'Afro, détouré */}
+      <figure className={s.perso}>
+        <Image
+          src="/afro/portrait-detoure.webp"
+          alt="Autoportrait dessiné d'Afro, de dos, la main sur la nuque, l'étoile rose sur l'épaule"
+          width={940}
+          height={1080}
+          priority
+          sizes="(max-width: 760px) 90vw, 46vw"
+          className={s.persoImg}
+        />
       </figure>
 
       <aside className={s.card}>
         <div className={s.cardFrame}>
           <div className={s.cardThumb}>
+            <Image
+              src="/afro/poing.webp"
+              alt=""
+              fill
+              sizes="160px"
+              className={s.cardImg}
+            />
             <span className={s.cardEp}>EP. 01</span>
             <span className={s.cardBig}>
               1,1M

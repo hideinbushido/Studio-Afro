@@ -21,10 +21,14 @@ Stack : Next.js 15 (App Router) + Tailwind 4, déploiement Vercel
 ## Assets
 | Asset | Origine | Utilisé où | État |
 |---|---|---|---|
-| Logo ΔFR✪ (PNG/SVG) | Afro | Nav, hero, tampon | demandé |
-| Avatar manga | Afro / Tidiane | Hero | placeholder |
+| Logo STUDIO ΔFR★™ (papier découpé) | Afro, détouré par nous (public/afro/logo*.{png,webp}) | Nav | intégré |
+| Autoportrait de dos (version fond gris) | Afro, détouré par nous (public/afro/portrait-detoure.*) | Hero | intégré |
+| Avatar poing + étoile | Afro (public/afro/poing.webp) | Carte du hero | intégré |
+| Illustration Osiris / Stand user | Afro (public/afro/osiris.webp) | Section « Stand » à proposer | en réserve |
+| Fiche de Stand (radar) | Afro, photo d'écran | Section « Stand » à proposer | à refaire en code |
+| Citation « I can't fail because this sh*t is my universe » | Afro (dans son illustration) | Citation | à valider |
+| Originaux | assets-src/afro/ | — | les versions « AI+ » (filigrane) ne sont pas utilisées |
 | Illustrations des cartes | Tidiane | Moments clés | à venir |
-| Citation | Afro | Citation | à demander |
 
 ## Décisions
 - 2026-11-09 : 100 % manga, aucune photo d'Afro.

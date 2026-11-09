@@ -56,54 +56,22 @@
 .perso {
   position: absolute;
   left: 50%;
-  bottom: -6vh;
+  bottom: 0;
   translate: -50% 0;
-  width: min(44vw, 640px);
-  aspect-ratio: 1;
+  height: min(88vh, 900px);
+  aspect-ratio: 940 / 1080;
   z-index: 1;
+  margin: 0;
   animation: rise 900ms var(--ease-snap) 150ms both;
 }
-.disc {
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  border: 5px solid var(--color-ink);
-  background:
-    radial-gradient(circle at 35% 30%, var(--color-paper) 0 18%, transparent 19%),
-    radial-gradient(var(--color-ink) 1.6px, transparent 1.9px) 0 0 / 9px 9px,
-    var(--color-paper-2);
-  overflow: hidden;
-}
-.disc::after {
-  content: "";
-  position: absolute;
-  inset: 14%;
-  border-radius: 50%;
-  background: var(--color-ink);
-}
-.persoStar {
-  position: absolute;
-  right: 16%;
-  bottom: 24%;
-  z-index: 2;
-  font-size: min(9vw, 130px);
-  line-height: 1;
-  color: var(--color-star);
-  text-shadow: 4px 4px 0 var(--color-ink);
-  animation: pop 500ms var(--ease-spring) 900ms both;
-}
-.persoTag {
-  position: absolute;
-  left: 50%;
-  top: 40%;
-  translate: -50% -50%;
-  z-index: 2;
-  color: var(--color-paper);
-  font-size: 11px;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  text-align: center;
-  line-height: 2;
+.persoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom;
+  /* Contour d'encre autour du détourage, façon case de manga */
+  filter: drop-shadow(3px 0 0 var(--color-ink)) drop-shadow(-3px 0 0 var(--color-ink))
+    drop-shadow(0 -3px 0 var(--color-ink)) drop-shadow(10px 8px 0 var(--color-star));
 }
 
 /* Carte à gauche : le premier million */
@@ -129,7 +97,18 @@
     radial-gradient(var(--color-star) 1.4px, transparent 1.7px) 0 0 / 7px 7px,
     var(--color-ink-2);
 }
+.cardImg {
+  object-fit: cover;
+  filter: grayscale(0.15) contrast(1.1);
+}
+.cardThumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgb(14 13 12 / 0.9), transparent 55%);
+}
 .cardEp {
+  z-index: 1;
   position: absolute;
   top: 8px;
   left: 8px;
@@ -140,6 +119,7 @@
   padding: 3px 6px;
 }
 .cardBig {
+  z-index: 1;
   position: absolute;
   inset: auto 8px 8px 8px;
   font-family: var(--font-display);
@@ -323,7 +303,19 @@
 }
 
 @media (max-width: 760px) {
-  .perso { width: 76vw; bottom: auto; top: 250px; }
+  .perso { height: auto; width: 92vw; bottom: 0; left: 58%; }
+  .titleLine:first-child > span {
+    width: max-content;
+    background: var(--color-paper);
+    border: 3px solid var(--color-ink);
+    padding: 0.04em 0.12em 0;
+  }
+  .kicker {
+    background: var(--color-paper);
+    padding: 4px 6px;
+    width: max-content;
+    max-width: calc(100vw - 36px);
+  }
   .card { left: 16px; top: 92px; width: 104px; }
   .cardBig { font-size: 17px; }
   .cardText { display: none; }
