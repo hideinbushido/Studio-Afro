@@ -8,7 +8,11 @@ import { HoloCard } from "./HoloCard";
 import { VideoModal } from "./VideoModal";
 import s from "./Moments.module.css";
 
-const reperes = ["00:10", "00:20", "00:30", "00:40", "00:50", "01:00", "01:10", "01:20"];
+// Timecodes de la règle du bas : un repère toutes les 10 s, un par carte.
+const reperes = moments.map((_, i) => {
+  const t = (i + 1) * 10;
+  return `${String(Math.floor(t / 60)).padStart(2, "0")}:${String(t % 60).padStart(2, "0")}`;
+});
 
 /**
  * Moments clés — base : « Signature Moments » de jjettas.com.
