@@ -1,4 +1,4 @@
-# Design — Studio AFRO (proposition, à valider)
+# Design — Studio AFRO
 
 ## Couleurs
 | Token | Valeur | Rôle |
@@ -11,7 +11,7 @@
 | `star` | #e8336f | Rose de l'étoile ✪ : seule couleur forte |
 | `star-ink` | #b8174f | Rose foncé, survol et texte rose sur papier |
 
-## Typo (option A recommandée)
+## Typo (option A, validée)
 - Titres : **Anton** (OFL) — condensé, capitales, interlignage 0.86.
 - Labels, chiffres, textes : **JetBrains Mono** (OFL) — 11 px, capitales, tracking 0.3em pour les labels.
 - Échelle : héros 140 px / chapitres 18vw / labels 11 px. Contraste extrême voulu.

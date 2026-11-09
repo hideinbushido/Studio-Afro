@@ -1,0 +1,339 @@
+.hero {
+  position: relative;
+  height: 100svh;
+  min-height: 640px;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--color-paper);
+}
+
+/* Trame manga : points de demi-teinte, plus denses vers les bords */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: radial-gradient(var(--color-ink) 1.1px, transparent 1.3px);
+  background-size: 7px 7px;
+  opacity: 0.16;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 45%, transparent 35%, #000 100%);
+}
+
+/* Lignes de vitesse depuis le perso */
+.speed {
+  position: absolute;
+  inset: -20%;
+  z-index: -2;
+  opacity: 0.07;
+  background: repeating-conic-gradient(
+    from 0deg at 50% 52%,
+    var(--color-ink) 0deg 0.6deg,
+    transparent 0.6deg 6deg
+  );
+  animation: spin 120s linear infinite;
+}
+
+.watermark {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -54%;
+  z-index: -1;
+  font-family: var(--font-display);
+  font-size: min(36vw, 62vh);
+  line-height: 0.8;
+  letter-spacing: -0.02em;
+  color: transparent;
+  -webkit-text-stroke: 2px rgb(14 13 12 / 0.13);
+  white-space: nowrap;
+  user-select: none;
+}
+.watermark span {
+  -webkit-text-stroke-color: rgb(232 51 111 / 0.35);
+}
+
+/* Le perso : emplacement du dessin d'Afro */
+.perso {
+  position: absolute;
+  left: 50%;
+  bottom: -6vh;
+  translate: -50% 0;
+  width: min(44vw, 640px);
+  aspect-ratio: 1;
+  z-index: 1;
+  animation: rise 900ms var(--ease-snap) 150ms both;
+}
+.disc {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 5px solid var(--color-ink);
+  background:
+    radial-gradient(circle at 35% 30%, var(--color-paper) 0 18%, transparent 19%),
+    radial-gradient(var(--color-ink) 1.6px, transparent 1.9px) 0 0 / 9px 9px,
+    var(--color-paper-2);
+  overflow: hidden;
+}
+.disc::after {
+  content: "";
+  position: absolute;
+  inset: 14%;
+  border-radius: 50%;
+  background: var(--color-ink);
+}
+.persoStar {
+  position: absolute;
+  right: 16%;
+  bottom: 24%;
+  z-index: 2;
+  font-size: min(9vw, 130px);
+  line-height: 1;
+  color: var(--color-star);
+  text-shadow: 4px 4px 0 var(--color-ink);
+  animation: pop 500ms var(--ease-spring) 900ms both;
+}
+.persoTag {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  translate: -50% -50%;
+  z-index: 2;
+  color: var(--color-paper);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 2;
+}
+
+/* Carte à gauche : le premier million */
+.card {
+  position: absolute;
+  left: 4.5vw;
+  top: 17vh;
+  width: 160px;
+  z-index: 3;
+  rotate: -4deg;
+  animation: drop 700ms var(--ease-spring) 500ms both;
+}
+.cardFrame {
+  border: 3px solid var(--color-ink);
+  background: var(--color-ink);
+  padding: 6px;
+  box-shadow: 6px 6px 0 var(--color-star);
+}
+.cardThumb {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  background:
+    radial-gradient(var(--color-star) 1.4px, transparent 1.7px) 0 0 / 7px 7px,
+    var(--color-ink-2);
+}
+.cardEp {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  color: var(--color-paper);
+  background: var(--color-star);
+  padding: 3px 6px;
+}
+.cardBig {
+  position: absolute;
+  inset: auto 8px 8px 8px;
+  font-family: var(--font-display);
+  color: var(--color-paper);
+  font-size: 26px;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+.cardText {
+  margin-top: 14px;
+  font-size: 10.5px;
+  line-height: 1.55;
+  max-width: 190px;
+  rotate: 4deg;
+}
+
+/* Tampon à droite */
+.right {
+  position: absolute;
+  right: 5vw;
+  top: 36vh;
+  width: 240px;
+  z-index: 3;
+}
+.stamp {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin-bottom: 22px;
+  border: 4px solid var(--color-star);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--color-star);
+  rotate: -14deg;
+  animation: stamp 420ms var(--ease-snap) 1100ms both;
+}
+.stamp::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 2px dashed var(--color-star);
+  border-radius: 50%;
+}
+.stampMark {
+  font-family: var(--font-display);
+  font-size: 44px;
+  line-height: 1;
+}
+.stampSub {
+  position: absolute;
+  bottom: 26px;
+  font-size: 8px;
+  letter-spacing: 0.3em;
+  font-weight: 700;
+}
+.rightText {
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+/* Titre */
+.kicker {
+  position: absolute;
+  left: 44px;
+  bottom: calc(16vh + min(17vw, 262px));
+  z-index: 3;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+.kicker::before {
+  content: "✪ ";
+  color: var(--color-star);
+}
+.title {
+  position: absolute;
+  left: 40px;
+  bottom: 16vh;
+  z-index: 3;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: min(9vw, 140px);
+  line-height: 0.86;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+.titleLine {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.04em;
+}
+.titleLine > span {
+  display: block;
+  animation: up 800ms var(--ease-snap) both;
+}
+.titleLine:nth-child(2) > span {
+  animation-delay: 120ms;
+}
+.titleInk {
+  width: max-content;
+  margin-top: 0.06em;
+  rotate: -1.5deg;
+  translate: -4px 0;
+}
+.titleInk > span {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  padding: 0 0.12em;
+}
+
+/* Coupe diagonale + timeline de montage */
+.cut {
+  position: absolute;
+  left: -2%;
+  right: -2%;
+  bottom: -1px;
+  height: 13vh;
+  z-index: 4;
+  background: var(--color-ink);
+  clip-path: polygon(0 72%, 100% 0, 100% 100%, 0 100%);
+}
+.ruler {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 16px;
+  height: 30px;
+  z-index: 5;
+  display: flex;
+  justify-content: space-around;
+  padding-left: 30vw;
+  color: #6c665d;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+}
+.ruler::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -10px;
+  height: 10px;
+  background: repeating-linear-gradient(90deg, #4a4640 0 1px, transparent 1px 12px);
+}
+.sound {
+  position: absolute;
+  right: 28px;
+  bottom: 22px;
+  z-index: 6;
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--color-paper);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 3px;
+  padding-bottom: 11px;
+  cursor: pointer;
+}
+.sound i {
+  width: 3px;
+  background: var(--color-paper);
+}
+.sound i:nth-child(1) { height: 8px; }
+.sound i:nth-child(2) { height: 14px; }
+.sound i:nth-child(3) { height: 10px; }
+.sound i:nth-child(4) { height: 5px; }
+.sound:active { translate: 2px 2px; }
+
+@keyframes spin { to { rotate: 360deg; } }
+@keyframes up { from { translate: 0 105%; } }
+@keyframes rise { from { translate: -50% 40%; } }
+@keyframes drop { from { translate: -40px -120vh; rotate: -24deg; } }
+@keyframes pop { from { scale: 0; rotate: -90deg; } }
+@keyframes stamp {
+  0% { scale: 2.2; opacity: 0; }
+  70% { scale: 0.94; opacity: 1; }
+  100% { scale: 1; opacity: 1; }
+}
+
+@media (max-width: 760px) {
+  .perso { width: 76vw; bottom: auto; top: 250px; }
+  .card { left: 16px; top: 92px; width: 104px; }
+  .cardBig { font-size: 17px; }
+  .cardText { display: none; }
+  .right { right: 20px; top: 104px; width: 120px; }
+  .stamp { width: 96px; height: 96px; }
+  .stampMark { font-size: 30px; }
+  .stampSub { bottom: 18px; font-size: 6px; }
+  .rightText { display: none; }
+  .title { left: 16px; bottom: 15vh; font-size: 17vw; }
+  .kicker { left: 18px; bottom: calc(15vh + 32vw); }
+  .watermark { font-size: 44vw; top: 44%; }
+  .ruler { padding-left: 0; font-size: 9px; }
+}
