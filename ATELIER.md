@@ -9,7 +9,7 @@ Stack : Next.js 15 (App Router) + Tailwind 4, déploiement Vercel
 | Page | Section | Source(s) | État |
 |---|---|---|---|
 | Accueil | Nav + chargement | jjettas.com (pastille, % de chargement) | à faire |
-| Accueil | Hero | jjettas.com — https://jjettas.com (structure : portrait détouré, filigrane géant, carte à gauche, signature à droite) | fiche envoyée |
+| Accueil | Hero | jjettas.com — https://jjettas.com (structure : portrait détouré, filigrane géant, carte à gauche, signature à droite) | maquette envoyée (2026-11-09) |
 | Accueil | Moments clés | jjettas.com — Signature Moments (défilement horizontal, cartes, règle) | à faire |
 | Accueil | Citation | jjettas.com — citation en lettres pointillées | à faire |
 | Accueil | Cases qui tombent | jjettas.com — pile de polaroïds | à faire |
