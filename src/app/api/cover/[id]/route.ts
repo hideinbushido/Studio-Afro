@@ -12,7 +12,9 @@ const PROFIL = "https://www.tiktok.com/@afrothecreator/video/";
 
 export async function GET(req: Request, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const fallback = new URL(req.url).searchParams.get("fallback");
+  const sp = new URL(req.url).searchParams;
+  const fallback = sp.get("fallback");
+  const debug = sp.has("debug");
   const secours = () =>
     fallback?.startsWith("/afro/")
       ? NextResponse.redirect(new URL(fallback, req.url), 307)
@@ -27,10 +29,18 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
     });
     if (!meta.ok) {
       console.warn(`[cover] oEmbed ${id} → ${meta.status}`);
+      if (debug) return NextResponse.json({ etape: "oembed", status: meta.status, corps: (await meta.text()).slice(0, 300) });
       return secours();
     }
-    const { thumbnail_url } = (await meta.json()) as { thumbnail_url?: string };
-    if (!thumbnail_url) return secours();
+    const brut = await meta.text();
+    let thumbnail_url: string | undefined;
+    try {
+      thumbnail_url = (JSON.parse(brut) as { thumbnail_url?: string }).thumbnail_url;
+    } catch {}
+    if (!thumbnail_url) {
+      if (debug) return NextResponse.json({ etape: "oembed-json", corps: brut.slice(0, 300) });
+      return secours();
+    }
 
     const img = await fetch(thumbnail_url, {
       next: { revalidate: 43200 },
@@ -38,6 +48,7 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
     });
     if (!img.ok) {
       console.warn(`[cover] image ${id} → ${img.status}`);
+      if (debug) return NextResponse.json({ etape: "image", status: img.status, url: thumbnail_url.slice(0, 120) });
       return secours();
     }
 
@@ -49,6 +60,7 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
     });
   } catch (e) {
     console.warn(`[cover] ${id} → erreur`, e);
+    if (debug) return NextResponse.json({ etape: "exception", message: String(e) });
     return secours();
   }
 }
