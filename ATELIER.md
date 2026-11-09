@@ -3,7 +3,9 @@
 Mode : nouveau site
 Direction : Manga sur mesure (crème tramé → encre tramée, rose ✪) — voir DESIGN.md
 Polices : Anton (titres) + JetBrains Mono (textes, labels) — OFL, via @fontsource
-Stack : Next.js 15 (App Router) + Tailwind 4, déploiement Vercel
+Stack : Next.js 15 (App Router) + Tailwind 4
+Dépôt : github.com/hideinbushido/Studio-Afro (main)
+Vercel : projet « studio-afro » (équipe hideinbushidos-projects), mise en ligne à chaque push sur main
 
 ## Pages et sections
 | Page | Section | Source(s) | État |
