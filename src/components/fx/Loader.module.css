@@ -1,0 +1,57 @@
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 18px;
+  background:
+    radial-gradient(rgb(255 31 117 / 0.16) 1px, transparent 1.3px) 0 0 / 6px 6px,
+    radial-gradient(ellipse at 50% 45%, #2b0519, #05020a 70%);
+}
+.glow {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  width: 60vmin;
+  height: 60vmin;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgb(255 31 117 / 0.35), transparent);
+  animation: pulse 1.6s ease-in-out infinite alternate;
+}
+.logo {
+  position: relative;
+  width: min(240px, 52vw);
+}
+.logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+/* Logo vide : seulement le contour, terne */
+.base {
+  filter: grayscale(1) brightness(0.35) contrast(1.4);
+  opacity: 0.6;
+}
+/* Logo plein : encre rose qui monte */
+.fill {
+  position: absolute;
+  inset: 0;
+  filter: drop-shadow(0 0 18px rgb(255 31 117 / 0.6));
+}
+.fill img {
+  filter: sepia(1) saturate(6) hue-rotate(290deg) brightness(1.05);
+}
+.pct {
+  position: relative;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: rgb(255 214 230 / 0.8);
+}
+@keyframes pulse {
+  from { scale: 0.92; opacity: 0.7; }
+  to { scale: 1.08; opacity: 1; }
+}

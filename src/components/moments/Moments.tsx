@@ -49,6 +49,7 @@ export function Moments() {
   return (
     <section
       ref={section}
+      id="moments"
       className={s.section}
       data-nav="dark"
       style={{ height: reduce ? "auto" : `calc(100svh + ${distance}px)` }}
