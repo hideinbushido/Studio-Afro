@@ -3,11 +3,12 @@
 import { AnimatePresence, motion } from "motion/react";
 import { useLenis } from "lenis/react";
 import { useEffect, useRef } from "react";
-import type { Moment } from "@/data/moments";
 import s from "./VideoModal.module.css";
 
+export type VideoInfo = { videoId: string; titre: string; date?: string; stat?: string; ratio?: string };
+
 /** Fenêtre de verre avec le lecteur officiel TikTok. */
-export function VideoModal({ moment, onClose }: { moment: Moment | null; onClose: () => void }) {
+export function VideoModal({ moment, onClose }: { moment: VideoInfo | null; onClose: () => void }) {
   const lenis = useLenis();
   const closeRef = useRef<HTMLButtonElement>(null);
 
@@ -47,9 +48,7 @@ export function VideoModal({ moment, onClose }: { moment: Moment | null; onClose
           >
             <header className={s.head}>
               <div>
-                <p className={s.kicker}>
-                  {moment.date} · {moment.stat}
-                </p>
+                <p className={s.kicker}>{[moment.date, moment.stat].filter(Boolean).join(" · ")}</p>
                 <h3 className={s.title}>{moment.titre}</h3>
               </div>
               <button ref={closeRef} type="button" className={s.close} onClick={onClose} aria-label="Fermer la vidéo">

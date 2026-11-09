@@ -6,6 +6,7 @@ import "./globals.css";
 import { Loader } from "@/components/fx/Loader";
 import { SmoothScroll } from "@/components/fx/SmoothScroll";
 import { TransitionProvider } from "@/components/fx/Transition";
+import { VideoProvider } from "@/components/video/VideoProvider";
 
 export const metadata: Metadata = {
   title: "Studio AFRO — Doublage, Bading, animation",
@@ -22,7 +23,9 @@ export default function RootLayout({
     <html lang="fr">
       <body className="antialiased">
         <SmoothScroll>
-          <TransitionProvider>{children}</TransitionProvider>
+          <TransitionProvider>
+            <VideoProvider>{children}</VideoProvider>
+          </TransitionProvider>
           <Loader />
         </SmoothScroll>
       </body>

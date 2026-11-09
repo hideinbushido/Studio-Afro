@@ -1,0 +1,98 @@
+.section {
+  position: relative;
+  background: var(--color-void);
+  color: #fff;
+}
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+.guillemets {
+  position: absolute;
+  top: 15vh;
+  font-family: var(--font-display);
+  font-size: 72px;
+  letter-spacing: 0.1em;
+  color: var(--color-hot);
+  filter: drop-shadow(0 0 20px rgb(255 31 117 / 0.7));
+}
+.quote {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  padding: 0 20px;
+}
+.ligne {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 0.22em;
+  font-family: var(--font-display);
+  font-size: clamp(48px, 9.5vw, 150px);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+.mot {
+  position: relative;
+  display: inline-block;
+}
+/* Le mot vide : points de trame, comme la citation pointillée de la référence */
+.dots {
+  color: transparent;
+  background: radial-gradient(rgb(255 214 230 / 0.45) 1.3px, transparent 1.7px) 0 0 / 5px 5px;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+/* Le mot plein : dégradé chaud, monte du bas */
+.plein {
+  position: absolute;
+  inset: 0;
+  color: transparent;
+  background: linear-gradient(180deg, #ffffff 0%, #ffd6e6 35%, #ff4d94 75%, #ff1f75 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  filter: drop-shadow(0 0 24px rgb(255 31 117 / 0.55));
+}
+.auteur {
+  margin-top: 28px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgb(255 214 230 / 0.75);
+}
+
+.pile {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+.case {
+  position: absolute;
+  margin: 0;
+  width: clamp(130px, 13vw, 200px);
+  padding: 9px 9px 34px;
+  background: #f3eee3;
+  border: 2px solid #0e0d0c;
+  box-shadow: 0 30px 60px -18px rgb(0 0 0 / 0.85), 0 0 40px rgb(255 31 117 / 0.2);
+}
+.case img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 2px solid #0e0d0c;
+}
+
+@media (max-width: 760px) {
+  .guillemets { top: 12vh; font-size: 52px; }
+  .case { width: 30vw; }
+}

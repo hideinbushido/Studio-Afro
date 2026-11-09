@@ -1,7 +1,8 @@
 "use client";
 
 import { Dithering, MeshGradient } from "@paper-design/shaders-react";
-import { useReducedMotion } from "motion/react";
+import { useInView, useReducedMotion } from "motion/react";
+import { useRef } from "react";
 import s from "./DeepBackground.module.css";
 
 /**
@@ -13,10 +14,13 @@ import s from "./DeepBackground.module.css";
  */
 export function DeepBackground({ wave = true }: { wave?: boolean }) {
   const reduce = useReducedMotion();
-  const speed = reduce ? 0 : 1;
+  const ref = useRef<HTMLDivElement>(null);
+  // Le fond ne s'anime que lorsqu'il est à l'écran (économise la batterie et le processeur).
+  const visible = useInView(ref, { margin: "200px" });
+  const speed = reduce || !visible ? 0 : 1;
 
   return (
-    <div className={s.root} aria-hidden="true">
+    <div ref={ref} className={s.root} aria-hidden="true">
       <MeshGradient
         className={s.layer}
         colors={["#05020a", "#2b0519", "#6d0838", "#120527", "#05020a"]}

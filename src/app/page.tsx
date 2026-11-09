@@ -1,3 +1,8 @@
+import { Citation } from "@/components/citation/Citation";
+import { Collabs } from "@/components/collabs/Collabs";
+import { Equipe } from "@/components/equipe/Equipe";
+import { Footer } from "@/components/footer/Footer";
+import { Galerie } from "@/components/galerie/Galerie";
 import { Hero } from "@/components/hero/Hero";
 import { Moments } from "@/components/moments/Moments";
 import { Nav } from "@/components/nav/Nav";
@@ -9,9 +14,12 @@ export default function Home() {
       <main>
         <Hero />
         <Moments />
-        {/* Section suivante : citation (à venir) */}
-        <section data-nav="dark" className="min-h-[60vh] bg-void" aria-label="Citation (à venir)" />
+        <Citation />
+        <Collabs />
+        <Equipe />
+        <Galerie />
       </main>
+      <Footer />
     </>
   );
 }

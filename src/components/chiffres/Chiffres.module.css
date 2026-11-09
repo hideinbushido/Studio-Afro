@@ -1,0 +1,259 @@
+.root {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 6vh 0 14vh;
+  color: #fff;
+  background: var(--color-void);
+}
+.bloc {
+  position: relative;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 8vh 24px;
+}
+.titreBloc {
+  margin-bottom: 30px;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(44px, 7vw, 96px);
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.onglets {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 5px;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.08);
+  border: 1px solid rgb(255 255 255 / 0.16);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.onglet,
+.ongletOn {
+  position: relative;
+  padding: 10px 18px;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgb(255 214 230 / 0.7);
+  cursor: pointer;
+  isolation: isolate;
+}
+.onglet:hover {
+  color: #fff;
+}
+.ongletOn {
+  color: #fff;
+}
+.ongletFond {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 999px;
+  background: linear-gradient(120deg, #ff4d94, #ff1f75, #b3125a);
+  box-shadow: 0 0 24px rgb(255 31 117 / 0.6);
+}
+
+.compteurs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 40px;
+}
+.compteur {
+  padding: 22px;
+  border-radius: 18px;
+  background: linear-gradient(160deg, rgb(255 255 255 / 0.12), rgb(255 255 255 / 0.03));
+  border: 1px solid rgb(255 255 255 / 0.16);
+  box-shadow: 0 1px 0 rgb(255 255 255 / 0.2) inset;
+}
+.label {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgb(255 214 230 / 0.75);
+}
+.valeur {
+  margin-top: 8px;
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5vw, 72px);
+  line-height: 1;
+}
+
+.geant {
+  margin-top: 6vh;
+  text-align: center;
+}
+.geantNombre {
+  font-family: var(--font-display);
+  font-size: clamp(72px, 16vw, 250px);
+  line-height: 0.85;
+  color: transparent;
+  background:
+    radial-gradient(rgb(255 240 246 / 0.5) 1.4px, transparent 1.8px) 0 0 / 7px 7px,
+    linear-gradient(180deg, #ffffff 10%, #ff4d94 55%, #8f0a45 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  filter: drop-shadow(0 0 40px rgb(255 31 117 / 0.4));
+  font-variant-numeric: tabular-nums;
+}
+.geantLabel {
+  margin-top: 14px;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgb(255 214 230 / 0.8);
+}
+.profil {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 34px;
+  margin-top: 30px;
+  font-size: 12px;
+  color: rgb(255 255 255 / 0.75);
+}
+.profil strong {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 22px;
+  color: #fff;
+}
+
+.tableau {
+  display: grid;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgb(255 255 255 / 0.14);
+  background: rgb(255 255 255 / 0.04);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+.ligneTete,
+.ligne {
+  display: grid;
+  grid-template-columns: 2fr 0.7fr 1fr 1.3fr;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 22px;
+}
+.ligneTete {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgb(255 214 230 / 0.7);
+  background: rgb(255 255 255 / 0.06);
+}
+.ligne {
+  border-top: 1px solid rgb(255 255 255 / 0.08);
+  font-size: 13px;
+  transition: background 150ms;
+}
+.ligne:hover {
+  background: rgb(255 31 117 / 0.1);
+}
+.serie {
+  font-family: var(--font-display);
+  font-size: 22px;
+  text-transform: uppercase;
+}
+.vues {
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: #ff8fbb;
+}
+.lire {
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: 1px solid rgb(255 255 255 / 0.25);
+  background: rgb(255 255 255 / 0.06);
+  color: #fff;
+  font-size: 11px;
+  cursor: pointer;
+  transition: background 150ms;
+}
+.lire:hover {
+  background: var(--color-hot);
+}
+
+.record {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: minmax(200px, 300px) 1fr;
+  gap: 40px;
+  align-items: center;
+  perspective: 900px;
+}
+.recordVisuel {
+  position: relative;
+  padding: 0;
+  border: 0;
+  border-radius: 18px;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  cursor: pointer;
+  background: #0b0610;
+  box-shadow: 0 0 0 1px rgb(255 255 255 / 0.2), 0 30px 70px -20px rgb(0 0 0 / 0.9), 0 0 60px rgb(255 31 117 / 0.3);
+}
+.recordImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 0.15);
+  border: 1px solid rgb(255 255 255 / 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #fff;
+}
+.recordVisuel:hover .play {
+  background: var(--color-hot);
+}
+.recordTitre {
+  margin-top: 8px;
+  font-family: var(--font-display);
+  font-size: clamp(48px, 7vw, 104px);
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+.recordDetail {
+  margin-top: 14px;
+  max-width: 40ch;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgb(255 255 255 / 0.85);
+}
+.recordStats {
+  margin-top: 14px;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgb(255 214 230 / 0.7);
+}
+
+@media (max-width: 760px) {
+  .compteurs { grid-template-columns: 1fr 1fr; }
+  .ligneTete, .ligne { grid-template-columns: 1.5fr 0.6fr 1fr; padding: 12px 14px; }
+  .ligneTete span:last-child, .ligne span:last-child { display: none; }
+  .serie, .vues { font-size: 18px; }
+  .record { grid-template-columns: 1fr; gap: 20px; }
+  .recordVisuel { max-width: 260px; }
+}

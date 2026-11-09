@@ -3,6 +3,8 @@
 // art : illustration d'Afro utilisée en secours si TikTok ne répond pas.
 // ratio : format de la vidéo pour le lecteur (4/3 par défaut, relevé sur TikTok).
 
+import { ART } from "./art";
+
 export type Moment = {
   id: string;
   date: string;
@@ -13,18 +15,6 @@ export type Moment = {
   videoId: string;
   ratio?: string;
 };
-
-const ART = [
-  "/afro/cartes/01-debut.webp",
-  "/afro/cartes/02-million.webp",
-  "/afro/cartes/03-joestar.webp",
-  "/afro/cartes/04-record.webp",
-  "/afro/cartes/05-stand.webp",
-  "/afro/cartes/06-etoile.webp",
-  "/afro/cartes/07-studio.webp",
-  "/afro/cartes/08-anime.webp",
-  "/afro/cartes/09-retro.webp",
-];
 
 const liste: Omit<Moment, "art">[] = [
   { id: "debut", date: "06.11.2023", titre: "Le premier Bading", stat: "Sous le nom Afro Valentine · 48,2K vues", grand: "EP. 01", videoId: "7298387549867773217" },
