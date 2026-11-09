@@ -42,17 +42,24 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
     console.warn(`[cover] ${id} : échec à l'étape ${etape}`, info ?? "");
     if (debug) return NextResponse.json({ etape, info });
     return fallback?.startsWith("/afro/")
-      ? NextResponse.redirect(new URL(fallback, req.url), 307)
+      ? NextResponse.redirect(new URL(fallback, req.url), { status: 307, headers: { "Cache-Control": "no-store" } })
       : new NextResponse(null, { status: 404 });
   };
 
   if (!/^\d{10,25}$/.test(id)) return secours("id");
 
   try {
-    const page = await fetch(`https://www.tiktok.com/embed/v2/${id}`, {
-      next: { revalidate: 43200 },
-      headers: { "User-Agent": UA, "Accept-Language": "fr-FR,fr;q=0.9" },
-    });
+    // TikTok limite les appels (429) : un second essai après une courte pause.
+    const lirePage = () =>
+      fetch(`https://www.tiktok.com/embed/v2/${id}`, {
+        next: { revalidate: 43200 },
+        headers: { "User-Agent": UA, "Accept-Language": "fr-FR,fr;q=0.9" },
+      });
+    let page = await lirePage();
+    if (page.status === 429) {
+      await new Promise((r) => setTimeout(r, 1200));
+      page = await lirePage();
+    }
     if (!page.ok) return secours("embed", page.status);
     const html = await page.text();
     const cover = trouverCouverture(html);
@@ -68,7 +75,8 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
     return new NextResponse(await img.arrayBuffer(), {
       headers: {
         "Content-Type": img.headers.get("content-type") ?? "image/jpeg",
-        "Cache-Control": "public, max-age=3600, s-maxage=43200, stale-while-revalidate=86400",
+        // Une couverture ne change pas : 7 jours en cache sur Vercel, puis renouvelée en arrière-plan.
+        "Cache-Control": "public, max-age=86400, s-maxage=604800, stale-while-revalidate=2592000",
       },
     });
   } catch (e) {
