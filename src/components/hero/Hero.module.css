@@ -194,7 +194,7 @@
   bottom: -1px;
   height: 14vh;
   z-index: 4;
-  background: var(--color-ink);
+  background: var(--color-void);
   clip-path: polygon(0 72%, 100% 0, 100% 100%, 0 100%);
 }
 .ruler {

@@ -22,6 +22,7 @@ Si un composant ressemble à un template gratuit (TailwindUI ou autre), le rejet
 - Une seule couleur forte : le rose de l'étoile ✪ de son logo. Le reste en encre et papier.
 - Bordures d'encre franches à la place des ombres floues. Cases de manga inclinées pour la profondeur.
 - Interactions physiques ou instantanées (décalage de 2 px au clic), pas de fondus mous.
+- **Demande de Rico (prime sur les interdits ci-dessus)** : jamais pastel. De la profondeur (noirs colorés, lie-de-vin, magenta), des dégradés, des effets, du verre (backdrop-blur), des animations fluides. Rien qui fasse « généré par IA » : toujours les vrais dessins d'Afro.
 
 ## Contenu
 - Vidéos : intégration officielle TikTok uniquement, jamais rehébergées (parodies d'œuvres sous droits).

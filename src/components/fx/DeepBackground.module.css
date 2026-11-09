@@ -1,0 +1,35 @@
+.root {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  background: #05020a;
+}
+.layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+/* La vague tramée ne garde que ses points roses (le noir disparaît en screen) */
+.wave {
+  mix-blend-mode: screen;
+  opacity: 0.6;
+  mask-image: linear-gradient(to bottom, transparent 15%, #000 60%);
+}
+/* Halo magenta derrière le mot géant */
+.glow {
+  position: absolute;
+  left: 50%;
+  top: -18%;
+  width: 90vw;
+  height: 60vh;
+  translate: -50% 0;
+  background: radial-gradient(closest-side, rgb(255 31 117 / 0.32), transparent);
+  mix-blend-mode: screen;
+}
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 85% 75% at 50% 50%, transparent 45%, rgb(3 1 6 / 0.85) 100%);
+}

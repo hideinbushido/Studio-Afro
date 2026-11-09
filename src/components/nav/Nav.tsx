@@ -1,10 +1,35 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
-/** Nav calquée sur la référence : monogramme à gauche, nom au centre, menu à droite. */
+/**
+ * Nav calquée sur la référence : monogramme à gauche, nom au centre, menu à droite.
+ * Elle passe en clair quand une section sombre (data-nav="dark") est sous elle.
+ */
 export function Nav() {
+  const [dark, setDark] = useState(false);
+
+  useEffect(() => {
+    const sections = document.querySelectorAll<HTMLElement>('[data-nav="dark"]');
+    const visible = new Set<Element>();
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => (e.isIntersecting ? visible.add(e.target) : visible.delete(e.target)));
+        setDark(visible.size > 0);
+      },
+      { rootMargin: "0px 0px -92% 0px" },
+    );
+    sections.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <header className="pointer-events-none fixed inset-x-0 top-0 z-50 grid grid-cols-[1fr_auto_1fr] items-center px-4 py-[18px] md:px-10 md:py-6">
+    <header
+      data-theme={dark ? "dark" : "light"}
+      className="pointer-events-none fixed inset-x-0 top-0 z-50 grid grid-cols-[1fr_auto_1fr] items-center px-4 py-[18px] md:px-10 md:py-6"
+    >
       <Link
         href="/"
         className="pointer-events-auto block w-max transition-transform duration-150 ease-[var(--ease-spring)] hover:-rotate-3"
@@ -21,7 +46,13 @@ export function Nav() {
           />
         </span>
       </Link>
-      <p className="font-display text-[22px] uppercase leading-none tracking-[0.04em] md:text-[30px]">
+      <p
+        className={`rounded-full border px-4 py-2 font-display text-[20px] uppercase leading-none tracking-[0.04em] backdrop-blur-xl backdrop-saturate-150 transition-colors duration-300 md:px-6 md:text-[26px] ${
+          dark
+            ? "border-white/20 bg-black/40 text-paper shadow-[inset_0_1px_0_rgb(255_255_255/0.25),0_10px_30px_-10px_rgb(255_31_117/0.5)]"
+            : "border-ink/15 bg-paper/50 text-ink shadow-[inset_0_1px_0_rgb(255_255_255/0.8)]"
+        }`}
+      >
         Studio <span className="text-star">Afro</span>
       </p>
       <button

@@ -3,6 +3,7 @@ import "@fontsource/anton/400.css";
 import "@fontsource/jetbrains-mono/400.css";
 import "@fontsource/jetbrains-mono/700.css";
 import "./globals.css";
+import { SmoothScroll } from "@/components/fx/SmoothScroll";
 
 export const metadata: Metadata = {
   title: "Studio AFRO — Doublage, Bading, animation",
@@ -17,7 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <SmoothScroll>{children}</SmoothScroll>
+      </body>
     </html>
   );
 }

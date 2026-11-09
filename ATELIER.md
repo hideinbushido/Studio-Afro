@@ -10,7 +10,7 @@ Stack : Next.js 15 (App Router) + Tailwind 4, déploiement Vercel
 |---|---|---|---|
 | Accueil | Nav + chargement | jjettas.com (pastille, % de chargement) | à faire |
 | Accueil | Hero | jjettas.com — https://jjettas.com (structure : portrait détouré, filigrane géant, carte à gauche, signature à droite) | validée (2026-11-09) |
-| Accueil | Moments clés | jjettas.com — Signature Moments (défilement horizontal, cartes, règle) | à faire |
+| Accueil | Moments clés | jjettas.com — Signature Moments (structure) · 21st.dev Holographic Foil Card @daiwiikharihar (inclinaison + reflet) · 21st.dev Horizontal Scroll ui layout (section épinglée) · 21st.dev Wave @designali-in (fond tramé animé, via @paper-design/shaders) | v2 envoyée, en attente |
 | Accueil | Citation | jjettas.com — citation en lettres pointillées | à faire |
 | Accueil | Cases qui tombent | jjettas.com — pile de polaroïds | à faire |
 | Accueil | Collabs | jjettas.com — Partnerships | à faire |
@@ -40,6 +40,9 @@ Stack : Next.js 15 (App Router) + Tailwind 4, déploiement Vercel
 - 2026-11-09 : hero calqué au plus près de l'accueil jjettas.com (nom au centre de la nav, visuel géant central, carte à gauche, signature à droite, pas de gros titre) — demande de Rico.
 - 2026-11-09 : visuel central = le poing à l'étoile (choix de Rico), en cercle imprimé sur le papier.
 - 2026-11-09 : 21st.dev consulté dans le navigateur (le connecteur 21st n'est pas branché ici) ; mécanique reprise, rendu refait aux tokens.
+
+- 2026-11-09 : retour de Rico — « trop pastel », il veut de la profondeur, des effets, des dégradés, du verre, des animations, rien qui fasse « IA ». Sections sombres refaites : fond animé (dégradé maillé + vague tramée), cartes avec vrais dessins d'Afro, verre, retournement, éclat, défilement fluide (Lenis).
+- 2026-11-09 : la parole de Rico prime sur les garde-fous du CLAUDE.md (dégradés, arrondis, verre autorisés sur ce site).
 
 ## Prochaine étape
 Fiche « Moments clés » avec les candidats 21st.dev.
