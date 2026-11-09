@@ -1,10 +1,11 @@
 "use client";
 
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
-import { useLayoutEffect, useRef, useState } from "react";
-import { moments } from "@/data/moments";
+import { useCallback, useLayoutEffect, useRef, useState } from "react";
+import { moments, type Moment } from "@/data/moments";
 import { DeepBackground } from "@/components/fx/DeepBackground";
 import { HoloCard } from "./HoloCard";
+import { VideoModal } from "./VideoModal";
 import s from "./Moments.module.css";
 
 const reperes = ["00:10", "00:20", "00:30", "00:40", "00:50", "01:00", "01:10", "01:20"];
@@ -20,6 +21,8 @@ export function Moments() {
   const track = useRef<HTMLDivElement>(null);
   const [distance, setDistance] = useState(0);
   const reduce = useReducedMotion();
+  const [ouvert, setOuvert] = useState<Moment | null>(null);
+  const fermer = useCallback(() => setOuvert(null), []);
 
   useLayoutEffect(() => {
     const measure = () => {
@@ -80,7 +83,7 @@ export function Moments() {
           style={reduce ? undefined : { x }}
         >
           {moments.map((m, i) => (
-            <HoloCard key={m.id} m={m} index={i} />
+            <HoloCard key={m.id} m={m} index={i} onOpen={setOuvert} />
           ))}
         </motion.div>
 
@@ -90,6 +93,7 @@ export function Moments() {
           ))}
         </motion.div>
       </div>
+      <VideoModal moment={ouvert} onClose={fermer} />
     </section>
   );
 }

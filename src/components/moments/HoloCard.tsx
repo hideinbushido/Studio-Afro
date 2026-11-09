@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from "motion/react";
-import type { CSSProperties, PointerEvent } from "react";
+import type { CSSProperties, KeyboardEvent, PointerEvent } from "react";
 import type { Moment } from "@/data/moments";
 import s from "./Moments.module.css";
 
@@ -14,7 +14,7 @@ import s from "./Moments.module.css";
  *   « Holographic Foil Card » (21st.dev, @daiwiikharihar, MIT), refaite.
  * - Un éclat traverse la carte de temps en temps.
  */
-export function HoloCard({ m, index }: { m: Moment; index: number }) {
+export function HoloCard({ m, index, onOpen }: { m: Moment; index: number; onOpen: (m: Moment) => void }) {
   const reduce = useReducedMotion();
   const px = useMotionValue(0.5);
   const py = useMotionValue(0.5);
@@ -35,6 +35,13 @@ export function HoloCard({ m, index }: { m: Moment; index: number }) {
   }
 
   const numero = String(index + 1).padStart(2, "0");
+  const cover = `/api/cover/${m.videoId}?fallback=${encodeURIComponent(m.art)}`;
+  function onKey(e: KeyboardEvent<HTMLDivElement>) {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      onOpen(m);
+    }
+  }
 
   return (
     <article className={s.slot} data-offset={index % 2 ? "bas" : "haut"}>
@@ -51,9 +58,17 @@ export function HoloCard({ m, index }: { m: Moment; index: number }) {
           style={{ rotateX: rx, rotateY: ry, "--gx": gx, "--gy": gy } as never}
           onPointerMove={onMove}
           onPointerLeave={onLeave}
+          onClick={() => onOpen(m)}
+          onKeyDown={onKey}
+          role="button"
+          tabIndex={0}
+          aria-label={`Lire la vidéo : ${m.titre}`}
         >
           <div className={s.cardInner}>
-            <Image src={m.art} alt="" fill sizes="(max-width: 760px) 62vw, 240px" className={s.art} />
+            <Image src={cover} alt="" fill unoptimized className={s.art} />
+            <span className={s.play} aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="18" height="18"><path d="M8 5.5v13l11-6.5z" fill="currentColor" /></svg>
+            </span>
             <div className={s.topBand}>
               <span>N° {numero}</span>
               <span>{m.date}</span>

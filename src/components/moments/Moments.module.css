@@ -166,6 +166,33 @@
   filter: drop-shadow(0 4px 10px rgb(255 31 117 / 0.55));
 }
 
+/* Bouton lecture en verre */
+.play {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  color: #fff;
+  background: rgb(255 255 255 / 0.14);
+  border: 1px solid rgb(255 255 255 / 0.35);
+  backdrop-filter: blur(8px) saturate(1.5);
+  -webkit-backdrop-filter: blur(8px) saturate(1.5);
+  box-shadow: 0 0 30px rgb(255 31 117 / 0.45);
+  transition: transform 220ms var(--ease-spring), background 200ms;
+}
+.card:hover .play,
+.card:focus-visible .play {
+  transform: scale(1.18);
+  background: var(--color-hot);
+}
+.card { cursor: pointer; }
+
 /* Éclat qui traverse la carte en boucle */
 .shine {
   position: absolute;

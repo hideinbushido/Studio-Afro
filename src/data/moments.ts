@@ -1,5 +1,7 @@
 // Moments clés tirés de TIMELINE.md (analyse du TikTok @afrothecreator, 9 nov. 2026).
-// art : recadrage d'une illustration d'Afro (public/afro/cartes).
+// Image de la carte : couverture TikTok de la vidéo (servie par /api/cover/[id]).
+// art : illustration d'Afro utilisée en secours si TikTok ne répond pas.
+// ratio : format de la vidéo (relevé sur TikTok) pour le lecteur.
 
 export type Moment = {
   id: string;
@@ -8,7 +10,8 @@ export type Moment = {
   stat: string;
   grand: string; // gros texte sur la carte
   art: string;
-  videoId?: string;
+  videoId: string;
+  ratio?: string;
 };
 
 export const moments: Moment[] = [
@@ -83,13 +86,15 @@ export const moments: Moment[] = [
     grand: "BBZ",
     art: "/afro/cartes/08-anime.webp",
     videoId: "7664310323771477280",
+    ratio: "16 / 9",
   },
   {
     id: "retro",
     date: "31.10.2026",
     titre: "Invité des Retro Awards",
-    stat: "Il présente l'année 2007",
+    stat: "Il présente l'année 2007 · le lien pour voter",
     grand: "2007",
     art: "/afro/cartes/09-retro.webp",
+    videoId: "7689788285916368160",
   },
 ];
