@@ -46,5 +46,7 @@ Vercel : projet « studio-afro » (équipe hideinbushidos-projects), mise en lig
 - 2026-11-09 : retour de Rico — « trop pastel », il veut de la profondeur, des effets, des dégradés, du verre, des animations, rien qui fasse « IA ». Sections sombres refaites : fond animé (dégradé maillé + vague tramée), cartes avec vrais dessins d'Afro, verre, retournement, éclat, défilement fluide (Lenis).
 - 2026-11-09 : la parole de Rico prime sur les garde-fous du CLAUDE.md (dégradés, arrondis, verre autorisés sur ce site).
 
+- 2026-11-09 : cartes = couvertures TikTok, récupérées par le serveur sur la page d'intégration officielle (oEmbed ne donne plus la miniature), cache 12 h, illustration d'Afro en secours. Clic = lecteur TikTok officiel dans une fenêtre de verre (vérifié en ligne).
+
 ## Prochaine étape
 Priorités de AUDIT-JEFFERSON.md §4 : chargement, transition de page, menu plein écran, puis citation + polaroïds.
