@@ -12,7 +12,7 @@ Vercel : projet « studio-afro » (équipe hideinbushidos-projects), mise en lig
 |---|---|---|---|
 | Accueil | Nav + chargement | jjettas.com (pastille, % de chargement) | à faire |
 | Accueil | Hero | jjettas.com — https://jjettas.com (structure : portrait détouré, filigrane géant, carte à gauche, signature à droite) | validée (2026-11-09) |
-| Accueil | Moments clés | jjettas.com — Signature Moments (structure) · 21st.dev Holographic Foil Card @daiwiikharihar (inclinaison + reflet) · 21st.dev Horizontal Scroll ui layout (section épinglée) · 21st.dev Wave @designali-in (fond tramé animé, via @paper-design/shaders) | v2 envoyée, en attente |
+| Accueil | Moments clés | jjettas.com — Signature Moments (structure) · 21st.dev Holographic Foil Card @daiwiikharihar (inclinaison + reflet) · 21st.dev Horizontal Scroll ui layout (section épinglée) · 21st.dev Wave @designali-in (fond tramé animé, via @paper-design/shaders) | validée (2026-11-09), couvertures TikTok + lecteur |
 | Accueil | Citation | jjettas.com — citation en lettres pointillées | à faire |
 | Accueil | Cases qui tombent | jjettas.com — pile de polaroïds | à faire |
 | Accueil | Collabs | jjettas.com — Partnerships | à faire |
@@ -47,4 +47,4 @@ Vercel : projet « studio-afro » (équipe hideinbushidos-projects), mise en lig
 - 2026-11-09 : la parole de Rico prime sur les garde-fous du CLAUDE.md (dégradés, arrondis, verre autorisés sur ce site).
 
 ## Prochaine étape
-Fiche « Moments clés » avec les candidats 21st.dev.
+Priorités de AUDIT-JEFFERSON.md §4 : chargement, transition de page, menu plein écran, puis citation + polaroïds.
