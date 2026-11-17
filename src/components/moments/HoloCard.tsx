@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from "motion/react";
 import type { CSSProperties, KeyboardEvent, PointerEvent } from "react";
 import type { Moment } from "@/data/moments";
+import { coverDe } from "@/data/covers";
 import s from "./Moments.module.css";
 
 /**
@@ -35,7 +36,9 @@ export function HoloCard({ m, index, onOpen }: { m: Moment; index: number; onOpe
   }
 
   const numero = String(index + 1).padStart(2, "0");
-  const cover = `/api/cover/${m.videoId}?fallback=${encodeURIComponent(m.art)}`;
+  // La couverture de la vidéo si elle est dans le site, sinon l'illustration prévue pour ce moment.
+  const c = coverDe(m.videoId);
+  const cover = c.startsWith("/covers/") ? c : m.art;
   function onKey(e: KeyboardEvent<HTMLDivElement>) {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();

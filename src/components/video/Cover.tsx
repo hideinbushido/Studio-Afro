@@ -1,19 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
-import { ART } from "@/data/art";
+import { coverDe } from "@/data/covers";
 
 /**
- * Couverture TikTok d'une vidéo (via /api/cover), chargée seulement à l'approche.
- * Si TikTok ne répond pas, une illustration d'Afro prend la place.
+ * Couverture d'une vidéo, stockée dans le site (public/covers).
+ * Tant qu'une couverture manque, une illustration d'Afro prend la place.
  */
 export function Cover({ id, className, secours = 0, eager = false }: { id: string; className?: string; secours?: number; eager?: boolean }) {
-  const fb = ART[Math.abs(secours) % ART.length];
-  return (
-    <img
-      src={`/api/cover/${id}?fallback=${encodeURIComponent(fb)}`}
-      alt=""
-      loading={eager ? "eager" : "lazy"}
-      decoding="async"
-      className={className}
-    />
-  );
+  return <img src={coverDe(id, secours)} alt="" loading={eager ? "eager" : "lazy"} decoding="async" className={className} />;
 }
